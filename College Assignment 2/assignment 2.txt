@@ -1,0 +1,53 @@
+ER Diagram Design and Relational Schema
+Objective
+Design a complete Entity Relationship (ER) Diagram for the same applicationdomain selected in the First DBMS Assignment and convert it into a Relational Schema.
+
+Tasks
+1. Identify Entities and Attributes
+Identify the entities involved in your selected application.
+List the attributes of each entity.
+Identify the Primary Key (PK) for each entity.
+2. Identify Relationships
+Identify the relationships between the entities.
+Determine the appropriate cardinality
+One-to-One (11)
+One-to-Many (1)
+Many-to-Many (M)
+3. Design the ER Diagram
+Create a complete ER Diagram containing
+
+Entities
+Attributes
+Primary Keys
+Relationships
+Cardinality
+Use proper ER notation and ensure the diagram is neat and clearly labelled.
+
+4. Convert into Relational Schema
+Convert the ER Diagram into a Relational Schema.
+
+Clearly identify
+
+TablesRelations
+Attributes
+Primary Keys (PK)
+Foreign Keys (FK)
+For M relationships, create an appropriate intermediateassociative table.
+
+5. Relationship Explanation
+Briefly explain the relationships identified in your ER Diagram and their cardinalities.
+
+Expected Output
+Students must submit
+
+List of entities and attributes
+ER Diagram
+Relationships and cardinalities
+Relational Schema
+Primary and Foreign Key identification
+Brief relationship explanation
+Submission Guidelines
+Use MySQL Workbench, ERDPlus, Draw.io, or any suitable ER modelling tool.
+The ER Diagram must be created digitally and should be clearly readable.
+The Relational Schema must match the ER Diagram.
+Upload the completed assignment to your GitHub repository before Saturday, 26 September 2026.
