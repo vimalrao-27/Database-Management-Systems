@@ -2,95 +2,142 @@
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/DBMS-Coursework-336791?style=for-the-badge" alt="DBMS">
+<img src="https://img.shields.io/badge/MySQL-SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+<img src="https://img.shields.io/badge/ER%20Model-Database%20Design-6C63FF?style=for-the-badge" alt="ER Model">
+<img src="https://img.shields.io/badge/GitHub-Academic%20Projects-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+
+<br>
+
 ### 📚 College DBMS Coursework & Assignments
 
 **ER Diagrams • Relational Schemas • SQL • Database Modelling**
 
 🎓 **Alliance University**
 
-
-
-\
-
 </div>
 
 ---
 
-## 📌 About This Repository
+## 🌐 About This Repository
 
-This repository contains my **college Database Management Systems (DBMS) assignments and coursework** completed as part of my academic studies at **Alliance University**.
+Welcome to my **Database Management Systems (DBMS)** repository! 👋
 
-It includes database modelling exercises, ER diagrams, relational schemas, SQL scripts, and assignment documentation based on a real-world **🍔 Online Food Delivery System**.
+This repository documents my **college DBMS coursework, assignments, database modelling exercises, ER diagrams, relational schemas, SQL implementation, and supporting documentation**.
 
-### 🔍 Topics Covered
+The main real-world application explored in this coursework is an:
 
-* 🧩 Entity and Attribute Identification
-* 🔑 Primary Keys (PK)
-* 🔗 Foreign Keys (FK)
-* 🔄 Relationships & Cardinality
-* 🗺️ Entity Relationship (ER) Diagrams
-* 📐 Relational Schema Design
-* 🔀 Many-to-Many (M) Relationship Conversion
-* 💻 MySQL Database Design
-* 📄 College Assignment Documentation
+# 🍔 Online Food Delivery System
+
+The project takes a real-world food-delivery workflow and converts it into a structured relational database using concepts such as **entities, attributes, primary keys, foreign keys, relationships, cardinality, ER modelling, relational schema design, and SQL**.
+
+> 🎓 **Academic Project**
+> This repository is maintained for college coursework, practical learning, experimentation, and documenting my database-learning journey.
 
 ---
 
-# 🍔 Application: Online Food Delivery System
+# 🧭 Quick Navigation
 
-For my **college DBMS assignment**, I selected an **Online Food Delivery System** as the real-world application.
-
-The database model represents the major components required to manage customers, delivery addresses, restaurants, menu items, delivery partners, orders, order items, and payments.
+| 📌 Section                  | 🔎 Explore                                     |
+| :-------------------------- | :--------------------------------------------- |
+| 📝 **Assignment 1**         | Application analysis and database requirements |
+| 🗺️ **Assignment 2**        | ER diagram and relational schema               |
+| 🧩 **Database Design**      | Entities, keys, relationships, and cardinality |
+| 💻 **SQL Implementation**   | MySQL database schema                          |
+| 📂 **Repository Structure** | Project files and documentation                |
+| 🛠️ **Tools**               | Technologies used                              |
+| 🎯 **Learning Outcomes**    | Concepts and skills practiced                  |
 
 ---
 
-## 🧩 Main Entities
+# 🚀 What This Repository Covers
 
-| Entity                  | Description                                                   |
-| :---------------------- | :------------------------------------------------------------ |
-| 👤 **Customer**         | Stores customer account and contact information               |
-| 🏠 **Address**          | Stores delivery addresses belonging to customers              |
-| 🍽️ **Restaurant**      | Stores restaurant information and ratings                     |
-| 🍕 **Menu_Item**        | Stores food items offered by restaurants                      |
-| 🛵 **Delivery_Partner** | Stores delivery partner and vehicle information               |
-| 🧾 **Orders**           | Stores customer orders, status, date, and total amount        |
-| 📦 **Order_Item**       | Connects orders with menu items and stores quantity and price |
-| 💳 **Payment**          | Stores payment details associated with an order               |
+```text
+Real-World Problem
+       ↓
+Identify Entities
+       ↓
+Define Attributes
+       ↓
+Choose Primary & Foreign Keys
+       ↓
+Define Relationships
+       ↓
+Determine Cardinality
+       ↓
+Create ER Diagram
+       ↓
+Convert ER Model → Relational Schema
+       ↓
+Implement with SQL
+       ↓
+Document & Organize
+```
+
+---
+
+# 🍔 Online Food Delivery System
+
+The database model represents the major components required to manage an online food-delivery system.
+
+### 🧩 Main Components
+
+| Entity                  | Description                                         |
+| :---------------------- | :-------------------------------------------------- |
+| 👤 **Customer**         | Stores customer account and contact information     |
+| 🏠 **Address**          | Stores customer delivery addresses                  |
+| 🍽️ **Restaurant**      | Stores restaurant information and ratings           |
+| 🍕 **Menu_Item**        | Stores food items offered by restaurants            |
+| 🛵 **Delivery_Partner** | Stores delivery partner and vehicle information     |
+| 🧾 **Orders**           | Stores customer orders and order details            |
+| 📦 **Order_Item**       | Connects orders and menu items                      |
+| 💳 **Payment**          | Stores payment information associated with an order |
 
 ---
 
 # 🔗 Database Relationships
 
-| Relationship              | Cardinality | Description                                      |
-| :------------------------ | :---------: | :----------------------------------------------- |
-| Customer → Address        |  **1 : N**  | One customer can have multiple addresses         |
-| Customer → Orders         |  **1 : N**  | One customer can place multiple orders           |
-| Restaurant → Menu_Item    |  **1 : N**  | One restaurant can offer multiple menu items     |
-| Restaurant → Orders       |  **1 : N**  | One restaurant can receive multiple orders       |
-| Delivery_Partner → Orders |  **1 : N**  | One delivery partner can handle multiple orders  |
-| Orders → Order_Item       |  **1 : N**  | One order can contain multiple order items       |
-| Menu_Item → Order_Item    |  **1 : N**  | One menu item can appear in multiple order items |
-| Orders ↔ Menu_Item        |  **M : N**  | Resolved through `Order_Item`                    |
-| Orders → Payment          |  **1 : 1**  | Each order is associated with one payment        |
+| Relationship              | Cardinality | Meaning                                         |
+| :------------------------ | :---------: | :---------------------------------------------- |
+| Customer → Address        |  **1 : N**  | One customer can have multiple addresses        |
+| Customer → Orders         |  **1 : N**  | One customer can place multiple orders          |
+| Restaurant → Menu_Item    |  **1 : N**  | One restaurant can have multiple menu items     |
+| Restaurant → Orders       |  **1 : N**  | One restaurant can receive multiple orders      |
+| Delivery_Partner → Orders |  **1 : N**  | One delivery partner can handle multiple orders |
+| Orders → Order_Item       |  **1 : N**  | One order can contain multiple items            |
+| Menu_Item → Order_Item    |  **1 : N**  | One menu item can occur in multiple order items |
+| Orders ↔ Menu_Item        |  **M : N**  | Resolved using `Order_Item`                     |
+| Orders → Payment          |  **1 : 1**  | Each order has one payment                      |
 
 ---
 
-## 🔀 M Relationship Conversion
+# 🔀 M:N Relationship Conversion
 
-The **Orders ↔ Menu_Item** relationship is a **Many-to-Many (M)** relationship.
-
-It is resolved using the associative entity **`Order_Item`**.
+One of the important parts of the design is the **Many-to-Many relationship** between:
 
 ```text
-Orders  M ───────── N  Menu_Item
-              │
-              ▼
-          Order_Item
+Orders ↔ Menu_Item
 ```
 
-### Associative Table
+A single order can contain multiple menu items, while a menu item can appear in multiple orders.
 
-```sql
+To resolve this relationship, the associative entity:
+
+### 📦 `Order_Item`
+
+is introduced.
+
+```text
+        M                      N
+Orders ───────────────────── Menu_Item
+          \                /
+           \              /
+             Order_Item
+```
+
+### Structure
+
+```text
 ORDER_ITEM(
     Order_ID,
     Item_ID,
@@ -99,7 +146,11 @@ ORDER_ITEM(
 )
 ```
 
-**Composite Primary Key:** `(Order_ID, Item_ID)`
+**Composite Primary Key:**
+
+```text
+(Order_ID, Item_ID)
+```
 
 ---
 
@@ -108,16 +159,16 @@ ORDER_ITEM(
 ## 🍔 Online Food Delivery ERD
 
 <p align="center">
-  <img src="ONLINE%20FOOD%20DELIVERY%20SYSTEM/online_food_delivery_ERD.png" alt="Online Food Delivery ER Diagram" width="100%">
+  <img src="College%20Assignment%202/online_food_delivery_ERD.png" alt="Online Food Delivery ER Diagram" width="100%">
 </p>
 
-> 📌 This ER diagram was created for my **college DBMS Assignment 2** and represents entities, attributes, relationships, primary keys, foreign keys, and cardinalities.
+> 📌 The ER diagram represents the entities, attributes, relationships, primary keys, foreign keys, and cardinalities used in the database design.
 
 ---
 
 # 📐 Relational Schema
 
-### 👤 CUSTOMER
+## 👤 CUSTOMER
 
 ```text
 Customer(
@@ -131,7 +182,9 @@ Customer(
 
 **PK:** `Customer_ID`
 
-### 🏠 ADDRESS
+---
+
+## 🏠 ADDRESS
 
 ```text
 Address(
@@ -147,7 +200,9 @@ Address(
 **PK:** `Address_ID`
 **FK:** `Customer_ID → Customer.Customer_ID`
 
-### 🍽️ RESTAURANT
+---
+
+## 🍽️ RESTAURANT
 
 ```text
 Restaurant(
@@ -161,7 +216,9 @@ Restaurant(
 
 **PK:** `Restaurant_ID`
 
-### 🍕 MENU_ITEM
+---
+
+## 🍕 MENU_ITEM
 
 ```text
 Menu_Item(
@@ -177,7 +234,9 @@ Menu_Item(
 **PK:** `Item_ID`
 **FK:** `Restaurant_ID → Restaurant.Restaurant_ID`
 
-### 🛵 DELIVERY_PARTNER
+---
+
+## 🛵 DELIVERY_PARTNER
 
 ```text
 Delivery_Partner(
@@ -191,7 +250,9 @@ Delivery_Partner(
 
 **PK:** `Delivery_ID`
 
-### 🧾 ORDERS
+---
+
+## 🧾 ORDERS
 
 ```text
 Orders(
@@ -208,7 +269,7 @@ Orders(
 
 **PK:** `Order_ID`
 
-**Foreign Keys:**
+### Foreign Keys
 
 ```text
 Customer_ID   → Customer.Customer_ID
@@ -217,7 +278,9 @@ Address_ID    → Address.Address_ID
 Delivery_ID   → Delivery_Partner.Delivery_ID
 ```
 
-### 📦 ORDER_ITEM
+---
+
+## 📦 ORDER_ITEM
 
 ```text
 Order_Item(
@@ -230,14 +293,16 @@ Order_Item(
 
 **PK:** `(Order_ID, Item_ID)`
 
-**Foreign Keys:**
+### Foreign Keys
 
 ```text
 Order_ID → Orders.Order_ID
 Item_ID  → Menu_Item.Item_ID
 ```
 
-### 💳 PAYMENT
+---
+
+## 💳 PAYMENT
 
 ```text
 Payment(
@@ -257,7 +322,7 @@ Payment(
 
 # 📊 Database Design Summary
 
-| Table              | Primary Key           | Foreign Key(s)                                              |
+| Table              | 🔑 Primary Key        | 🔗 Foreign Keys                                             |
 | :----------------- | :-------------------- | :---------------------------------------------------------- |
 | `Customer`         | `Customer_ID`         | —                                                           |
 | `Address`          | `Address_ID`          | `Customer_ID`                                               |
@@ -270,99 +335,79 @@ Payment(
 
 ---
 
-# 📂 Repository Structure
-
-```text
-Database-Management-Systems/
-│
-└── 📁 ONLINE FOOD DELIVERY SYSTEM/
-    │
-    ├── 📄 assignment 1.txt
-    ├── 📄 assignment 2.txt
-    │
-    ├── 📄 DBMS Assignment Online Food Delivery System.docx
-    ├── 📄 DBMS Assignment Online Food Delivery System.pdf
-    │
-    ├── 📄 Online_Food_Delivery_ER_Assignment.docx
-    ├── 📄 Online_Food_Delivery_ER_Assignment2.pdf
-    │
-    ├── 🖼️ ONLINE FOOD DELIVERY SYSTEM(1).png
-    ├── 🖼️ ONLINE FOOD DELIVERY SYSTEM.png
-    ├── 🖼️ Online Food.png
-    ├── 🖼️ online_food_delivery_ERD.png
-    │
-    └── 💻 online_food_delivery_schema.sql
-```
-
----
-
 # 📝 College Assignment 1
 
-### Objective
+## 🎯 Objective
 
-For the first **college DBMS assignment**, a real-world application was selected and the database tables required to manage it were identified.
+The first assignment focuses on selecting a real-world application and identifying the database structures required to manage it.
 
-### Covered Topics
+### 📚 Covered Topics
 
-* Application name and purpose
-* Required database tables
-* Columns / attributes
-* Table relationships
-* Purpose of each table
+* 🏷️ Application name and purpose
+* 🗃️ Database tables
+* 🧩 Columns / attributes
+* 🔗 Table relationships
+* 📌 Purpose of each table
 
-📄 **[View Assignment 1](ONLINE%20FOOD%20DELIVERY%20SYSTEM/assignment%201.txt)**
+### 📄 Assignment
+
+➡️ **[Open Assignment 1](College%20Assignment%201/assignment%201.txt)**
+
+The folder also contains the assignment documentation and supporting images.
 
 ---
 
 # 📝 College Assignment 2
 
-## ER Diagram Design & Relational Schema
+## 🗺️ ER Diagram & Relational Schema
 
-The second **college DBMS assignment** focuses on designing a complete ER diagram for the selected application and converting the ER model into a relational schema.
+The second assignment focuses on converting the selected application into a complete **Entity Relationship Model** and then designing the corresponding relational schema.
 
-### Covered Topics
+### 📚 Covered Topics
 
-* Entities and attributes
-* Primary Keys
-* Foreign Keys
-* Relationships
-* Cardinalities
-* ER Diagram
-* Relational Schema
-* M relationship conversion
-* Relationship explanations
+* 🧩 Entities
+* 🏷️ Attributes
+* 🔑 Primary Keys
+* 🔗 Foreign Keys
+* 🔄 Relationships
+* 🔢 Cardinality
+* 🗺️ ER Diagram
+* 📐 Relational Schema
+* 🔀 M:N relationship conversion
 
-### 📄 Assignment Files
+### 📄 Assignment Resources
 
-* **[Assignment 2 Instructions](ONLINE%20FOOD%20DELIVERY%20SYSTEM/assignment%202.txt)**
-* **[Assignment 2 PDF](ONLINE%20FOOD%20DELIVERY%20SYSTEM/Online_Food_Delivery_ER_Assignment2.pdf)**
-* **[Assignment 2 DOCX](ONLINE%20FOOD%20DELIVERY%20SYSTEM/Online_Food_Delivery_ER_Assignment.docx)**
+➡️ **[Assignment 2 Instructions](College%20Assignment%202/assignment%202.txt)**
+➡️ **[Assignment 2 PDF](College%20Assignment%202/Online_Food_Delivery_ER_Assignment2.pdf)**
+➡️ **[Assignment 2 DOCX](College%20Assignment%202/Online_Food_Delivery_ER_Assignment.docx)**
 
 ---
 
 # 💻 MySQL Implementation
 
-The relational schema is implemented using **MySQL**.
+The relational design is implemented using **MySQL**.
 
-### 📌 SQL File
+## 📌 SQL Schema
 
-**[online_food_delivery_schema.sql](ONLINE%20FOOD%20DELIVERY%20SYSTEM/online_food_delivery_schema.sql)**
+➡️ **[Open `online_food_delivery_schema.sql`](College%20Assignment%202/online_food_delivery_schema.sql)**
 
-### ⚙️ Includes
+### ⚙️ SQL Includes
 
-* ✅ Database creation
-* ✅ Table creation
-* ✅ Primary keys
-* ✅ Foreign keys
-* ✅ Unique constraints
-* ✅ Default values
-* ✅ Referential actions
-* ✅ Composite primary key for `Order_Item`
-* ✅ 1:1 relationship enforcement for `Payment`
+```text
+✅ Database creation
+✅ Table creation
+✅ Primary keys
+✅ Foreign keys
+✅ Unique constraints
+✅ Default values
+✅ Referential actions
+✅ Composite primary key
+✅ Payment relationship constraints
+```
 
 ### ▶️ Run the SQL
 
-Open the SQL file in **MySQL Workbench** or another MySQL client.
+Open the SQL file using **MySQL Workbench** or another compatible MySQL client.
 
 ```sql
 SOURCE online_food_delivery_schema.sql;
@@ -370,22 +415,104 @@ SOURCE online_food_delivery_schema.sql;
 
 ---
 
+# 📂 Repository Structure
+
+```text
+Database-Management-Systems/
+│
+├── 📁 College Assignment 1/
+│   │
+│   ├── 📄 assignment 1.txt
+│   ├── 📄 DBMS Assignment Online Food Delivery System.docx
+│   ├── 📄 DBMS Assignment Online Food Delivery System.pdf
+│   ├── 🖼️ ONLINE FOOD DELIVERY SYSTEM(1).png
+│   ├── 🖼️ ONLINE FOOD DELIVERY SYSTEM.png
+│   └── 🖼️ Online Food.png
+│
+├── 📁 College Assignment 2/
+│   │
+│   ├── 📄 assignment 2.txt
+│   ├── 📄 Online_Food_Delivery_ER_Assignment.docx
+│   ├── 📄 Online_Food_Delivery_ER_Assignment2.pdf
+│   ├── 🖼️ online_food_delivery_ERD.png
+│   └── 💻 online_food_delivery_schema.sql
+│
+└── 📘 README.md
+```
+
+---
+
 # 🛠️ Tools & Technologies
 
-| Tool                      | Purpose                               |
-| :------------------------ | :------------------------------------ |
-| 🐬 **MySQL**              | Database implementation               |
-| 🧰 **MySQL Workbench**    | SQL development & database management |
-| 🗺️ **ERDPlus / Draw.io** | ER diagram modelling                  |
-| 📄 **Microsoft Word**     | Assignment documentation              |
-| 📕 **PDF**                | Assignment submission                 |
-| 🐙 **GitHub**             | Version control & project hosting     |
+<p align="center">
+
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/MySQL%20Workbench-4479A1?style=flat-square&logo=mysql&logoColor=white">
+<img src="https://img.shields.io/badge/ERDPlus-Design-6C63FF?style=flat-square">
+<img src="https://img.shields.io/badge/Draw.io-Diagrams-F08705?style=flat-square&logo=diagramsdotnet&logoColor=white">
+<img src="https://img.shields.io/badge/Microsoft%20Word-Documentation-2B579A?style=flat-square&logo=microsoftword&logoColor=white">
+<img src="https://img.shields.io/badge/GitHub-Version%20Control-181717?style=flat-square&logo=github&logoColor=white">
+
+</p>
+
+| Tool                      | Purpose                                  |
+| :------------------------ | :--------------------------------------- |
+| 🐬 **MySQL**              | Database implementation                  |
+| 🧰 **MySQL Workbench**    | SQL development and database management  |
+| 🗺️ **ERDPlus / Draw.io** | ER diagram and database modelling        |
+| 📄 **Microsoft Word**     | Assignment documentation                 |
+| 📕 **PDF**                | Assignment submission                    |
+| 🐙 **GitHub**             | Version control and project organization |
+
+---
+
+# 🧠 DBMS Concepts Practiced
+
+This repository helped me practice the following concepts:
+
+### 🧩 Database Modelling
+
+Understanding how a real-world system can be represented as entities, attributes, and relationships.
+
+### 🔑 Keys
+
+Working with:
+
+```text
+Primary Key
+Foreign Key
+Composite Primary Key
+```
+
+### 🔗 Relationships
+
+```text
+1 : 1
+1 : N
+M : N
+```
+
+### 🔢 Cardinality
+
+Understanding how many instances of one entity can be associated with another.
+
+### 🗺️ ER Modelling
+
+Designing Entity Relationship Diagrams to visually represent database structures.
+
+### 📐 Relational Schema
+
+Transforming the conceptual ER model into a structured relational database design.
+
+### 💻 SQL
+
+Implementing the database structure using SQL DDL statements.
 
 ---
 
 # 🎯 Learning Outcomes
 
-Through this **college DBMS project**, I practiced:
+Through this coursework, I practiced:
 
 * 🧩 Identifying entities and attributes
 * 🔑 Designing primary and foreign keys
@@ -393,21 +520,42 @@ Through this **college DBMS project**, I practiced:
 * 🔢 Understanding cardinality
 * 🗺️ Creating ER diagrams
 * 📐 Converting ER models into relational schemas
-* 🔀 Resolving M relationships
+* 🔀 Resolving M:N relationships
 * 💻 Writing SQL DDL statements
 * 🗂️ Organizing database documentation
-* 🐙 Managing academic coursework using GitHub
+* 🐙 Managing academic coursework with GitHub
+
+---
+
+# 🧭 My DBMS Learning Path
+
+```text
+📚 Learn Concepts
+        ↓
+🧩 Model the Problem
+        ↓
+🗺️ Design the ER Diagram
+        ↓
+📐 Build the Relational Schema
+        ↓
+💻 Implement with SQL
+        ↓
+🔍 Test & Analyze
+        ↓
+📚 Document the Work
+```
 
 ---
 
 # 🎓 Academic Information
 
-**University:** Alliance University
-**Course:** Bachelor of Computer Applications (BCA)
-**Subject:** Database Management Systems (DBMS)
-**Project Type:** College Assignment
-
-This repository is maintained as part of my **college academic coursework and DBMS learning**.
+|                    |                                         |
+| :----------------- | :-------------------------------------- |
+| 🏫 **University**  | Alliance University                     |
+| 🎓 **Course**      | Bachelor of Computer Applications (BCA) |
+| 📚 **Subject**     | Database Management Systems             |
+| 📝 **Work Type**   | College Coursework & Assignments        |
+| 🍔 **Application** | Online Food Delivery System             |
 
 ---
 
@@ -415,24 +563,43 @@ This repository is maintained as part of my **college academic coursework and DB
 
 <div align="center">
 
-## **Vimal Rao**
+## **N.R. Vimal Kumar Rao**
 
-**BCA Student | Alliance University**
+### BCA Student • Alliance University
+
+<a href="https://github.com/vimalrao-27">
+  <img src="https://img.shields.io/badge/GitHub-vimalrao--27-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
 
 </div>
 
 ---
 
-## 📚 Academic Project
+# 📚 Academic Project
 
-This repository contains **college DBMS assignments and coursework** created for academic learning, database modelling practice, SQL implementation, and documentation.
+This repository represents my practical work in **Database Management Systems**, from understanding a real-world problem to designing its database structure and implementing it using SQL.
 
-> **Learn • Improve • Keep Moving Forward 🚀 **
+> **Learn • Improve • Keep Moving Forward 🚀**
 
 ---
 
 <div align="center">
 
+### 🗄️ Design the Data
+
+### 🔗 Build the Relationships
+
+### 💻 Write the SQL
+
+### 📊 Understand the Database
+
+<br>
+⭐ Support
+
+Found something useful here?
+
+Consider giving the repository a ⭐ — it helps motivate me to keep building and learning.
+<br>
 ⭐ **Thanks for visiting my DBMS repository!**
 
 </div>
