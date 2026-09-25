@@ -1,344 +1,456 @@
-🗄️ Database Management Systems
+# 🗄️ Database Management Systems
 
-A collection of DBMS coursework, assignments, ER diagrams, relational schemas, and SQL resources created as part of my academic work.
+<div align="center">
 
-This repository currently focuses on an Online Food Delivery System as the selected real-world database application.
+### 📚 DBMS Coursework & Database Design
 
-📌 Repository Overview
+**ER Diagrams • Relational Schemas • SQL • Database Modelling**
 
-The project demonstrates how a real-world food delivery application can be represented using database concepts, including:
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge\&logo=github)](https://github.com/vimalrao-27/Database-Management-Systems)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)](https://www.mysql.com/)
+[![DBMS](https://img.shields.io/badge/Subject-DBMS-orange?style=for-the-badge)](#)
+[![Academic](https://img.shields.io/badge/Project-Academic-success?style=for-the-badge)](#)
 
-Database table identification
+</div>
 
-Entities and attributes
+---
 
-Primary Keys (PK)
+## 📌 About This Repository
 
-Foreign Keys (FK)
+This repository contains my **Database Management Systems (DBMS) coursework, assignments, ER diagrams, relational schemas, and SQL implementations**.
 
-Relationships and cardinalities
+The current project focuses on designing a database for a real-world **🍔 Online Food Delivery System**, covering the complete process from identifying entities and relationships to creating a relational database using MySQL.
 
-Entity Relationship (ER) diagrams
+### 🔍 Topics Covered
 
-Relational schema design
+* 🧩 Entity and Attribute Identification
+* 🔑 Primary Keys (PK)
+* 🔗 Foreign Keys (FK)
+* 🔄 Relationships & Cardinality
+* 🗺️ Entity Relationship (ER) Diagrams
+* 📐 Relational Schema Design
+* 🔀 Many-to-Many (M:N) Relationship Conversion
+* 💻 MySQL Database Design
+* 📄 DBMS Assignment Documentation
 
-Many-to-Many (M) relationship conversion
+---
 
-MySQL table creation
+# 🍔 Online Food Delivery System
 
-🍔 Application: Online Food Delivery System
+The **Online Food Delivery System** is a database model designed to manage the core operations of an online food ordering platform.
 
-The Online Food Delivery System models the major data required to manage customers, addresses, restaurants, menu items, delivery partners, orders, order items, and payments.
+It represents customers, delivery addresses, restaurants, menu items, orders, delivery partners, order items, and payments.
 
-Main Entities
+---
 
-Entity
+## 🧩 Main Entities
 
-Purpose
+| Entity                  | Description                                                   |
+| :---------------------- | :------------------------------------------------------------ |
+| 👤 **Customer**         | Stores customer account and contact information               |
+| 🏠 **Address**          | Stores delivery addresses belonging to customers              |
+| 🍽️ **Restaurant**      | Stores restaurant information and ratings                     |
+| 🍕 **Menu_Item**        | Stores food items offered by restaurants                      |
+| 🛵 **Delivery_Partner** | Stores delivery partner and vehicle information               |
+| 🧾 **Orders**           | Stores customer orders, status, date, and total amount        |
+| 📦 **Order_Item**       | Connects orders with menu items and stores quantity and price |
+| 💳 **Payment**          | Stores payment details associated with an order               |
 
-Customer
+---
 
-Stores customer account and contact information
+# 🔗 Database Relationships
 
-Address
+| Relationship              | Cardinality | Description                                      |
+| :------------------------ | :---------: | :----------------------------------------------- |
+| Customer → Address        |  **1 : N**  | One customer can have multiple addresses         |
+| Customer → Orders         |  **1 : N**  | One customer can place multiple orders           |
+| Restaurant → Menu_Item    |  **1 : N**  | One restaurant can offer multiple menu items     |
+| Restaurant → Orders       |  **1 : N**  | One restaurant can receive multiple orders       |
+| Delivery_Partner → Orders |  **1 : N**  | One delivery partner can handle multiple orders  |
+| Orders → Order_Item       |  **1 : N**  | One order can contain multiple order items       |
+| Menu_Item → Order_Item    |  **1 : N**  | One menu item can appear in multiple order items |
+| Orders ↔ Menu_Item        |  **M : N**  | Resolved through `Order_Item`                    |
+| Orders → Payment          |  **1 : 1**  | Each order is associated with one payment        |
 
-Stores delivery addresses associated with customers
+---
 
-Restaurant
+## 🔀 M:N Relationship Conversion
 
-Stores restaurant information and ratings
+The **Orders ↔ Menu_Item** relationship is a **Many-to-Many (M:N)** relationship.
 
-Menu_Item
+To convert it into relational tables, an associative entity called **`Order_Item`** is introduced.
 
-Stores food items offered by restaurants
+```text
+Orders  M ───────── N  Menu_Item
+              │
+              ▼
+          Order_Item
+```
 
-Delivery_Partner
+### Associative Table
 
-Stores delivery partner and vehicle details
+```sql
+ORDER_ITEM(
+    Order_ID,
+    Item_ID,
+    Quantity,
+    Unit_Price
+)
+```
 
-Orders
+**Composite Primary Key:**
 
-Stores customer orders and order status
+```text
+(Order_ID, Item_ID)
+```
 
-Order_Item
+---
 
-Associates orders with menu items and stores quantity/price
+# 🗺️ Entity Relationship Diagram
 
-Payment
+## 🍔 Online Food Delivery ERD
 
-Stores payment information for orders
+<p align="center">
+  <img src="ONLINE%20FOOD%20DELIVERY%20SYSTEM/online_food_delivery_ERD.png" alt="Online Food Delivery ER Diagram" width="100%">
+</p>
 
-🧩 Database Relationships
+> 📌 The ER diagram represents entities, attributes, primary keys, relationships, foreign keys, and cardinalities used in the database design.
 
-Relationship
+---
 
-Cardinality
+# 📐 Relational Schema
 
-Description
+The ER model is converted into the following relational schema.
 
-Customer → Address
+### 👤 CUSTOMER
 
-1 : N
+```text
+Customer(
+    Customer_ID,
+    Name,
+    Email,
+    Phone,
+    Password
+)
+```
 
-One customer can have multiple addresses
+**Primary Key:** `Customer_ID`
 
-Customer → Orders
+---
 
-1 : N
+### 🏠 ADDRESS
 
-One customer can place multiple orders
+```text
+Address(
+    Address_ID,
+    Customer_ID,
+    House_No,
+    Street,
+    City,
+    Pincode
+)
+```
 
-Restaurant → Menu_Item
+**Primary Key:** `Address_ID`
+**Foreign Key:** `Customer_ID → Customer.Customer_ID`
 
-1 : N
+---
 
-One restaurant can offer multiple menu items
+### 🍽️ RESTAURANT
 
-Restaurant → Orders
+```text
+Restaurant(
+    Restaurant_ID,
+    Restaurant_Name,
+    Phone,
+    Address,
+    Rating
+)
+```
 
-1 : N
+**Primary Key:** `Restaurant_ID`
 
-One restaurant can receive multiple orders
+---
 
-Delivery_Partner → Orders
+### 🍕 MENU_ITEM
 
-1 : N
+```text
+Menu_Item(
+    Item_ID,
+    Restaurant_ID,
+    Item_Name,
+    Description,
+    Price,
+    Availability
+)
+```
 
-One delivery partner can handle multiple orders
+**Primary Key:** `Item_ID`
+**Foreign Key:** `Restaurant_ID → Restaurant.Restaurant_ID`
 
-Orders → Order_Item
+---
 
-1 : N
+### 🛵 DELIVERY_PARTNER
 
-One order can contain multiple order items
+```text
+Delivery_Partner(
+    Delivery_ID,
+    Name,
+    Phone,
+    Vehicle_Number,
+    Status
+)
+```
 
-Menu_Item → Order_Item
+**Primary Key:** `Delivery_ID`
 
-1 : N
+---
 
-One menu item can appear in multiple order items
+### 🧾 ORDERS
 
-Orders → Menu_Item
+```text
+Orders(
+    Order_ID,
+    Customer_ID,
+    Restaurant_ID,
+    Address_ID,
+    Delivery_ID,
+    Order_Date,
+    Order_Status,
+    Total_Amount
+)
+```
 
-M : N
+**Primary Key:** `Order_ID`
 
-Resolved through Order_Item
+**Foreign Keys:**
 
-Orders → Payment
+```text
+Customer_ID   → Customer.Customer_ID
+Restaurant_ID → Restaurant.Restaurant_ID
+Address_ID    → Address.Address_ID
+Delivery_ID   → Delivery_Partner.Delivery_ID
+```
 
-1 : 1
+---
 
-Each order is associated with one payment
+### 📦 ORDER_ITEM
 
-🔗 M Relationship Conversion
+```text
+Order_Item(
+    Order_ID,
+    Item_ID,
+    Quantity,
+    Unit_Price
+)
+```
 
-The Orders ↔ Menu_Item many-to-many relationship is resolved using the associative table:
+**Primary Key:**
 
-ORDER_ITEM(Order_ID, Item_ID, Quantity, Unit_Price)
+```text
+(Order_ID, Item_ID)
+```
 
-Composite Primary Key: (Order_ID, Item_ID)
+**Foreign Keys:**
 
-🗺️ ER Diagram
+```text
+Order_ID → Orders.Order_ID
+Item_ID  → Menu_Item.Item_ID
+```
 
-Online Food Delivery ERD
+---
 
+### 💳 PAYMENT
 
+```text
+Payment(
+    Payment_ID,
+    Order_ID,
+    Payment_Method,
+    Payment_Status,
+    Payment_Date,
+    Amount
+)
+```
 
-Additional ER diagram versions are available in the project folder.
+**Primary Key:** `Payment_ID`
+**Foreign Key:** `Order_ID → Orders.Order_ID`
 
-📐 Relational Schema
+---
 
-CUSTOMER
+# 📊 Database Design Summary
 
-Customer(Customer_ID, Name, Email, Phone, Password)
+| Table              | Primary Key           | Foreign Key(s)                                              |
+| :----------------- | :-------------------- | :---------------------------------------------------------- |
+| `Customer`         | `Customer_ID`         | —                                                           |
+| `Address`          | `Address_ID`          | `Customer_ID`                                               |
+| `Restaurant`       | `Restaurant_ID`       | —                                                           |
+| `Menu_Item`        | `Item_ID`             | `Restaurant_ID`                                             |
+| `Delivery_Partner` | `Delivery_ID`         | —                                                           |
+| `Orders`           | `Order_ID`            | `Customer_ID`, `Restaurant_ID`, `Address_ID`, `Delivery_ID` |
+| `Order_Item`       | `(Order_ID, Item_ID)` | `Order_ID`, `Item_ID`                                       |
+| `Payment`          | `Payment_ID`          | `Order_ID`                                                  |
 
-PK: Customer_ID
+---
 
-ADDRESS
+# 📂 Repository Structure
 
-Address(Address_ID, Customer_ID, House_No, Street, City, Pincode)
-
-PK: Address_ID
-FK: Customer_ID → Customer.Customer_ID
-
-RESTAURANT
-
-Restaurant(Restaurant_ID, Restaurant_Name, Phone, Address, Rating)
-
-PK: Restaurant_ID
-
-MENU_ITEM
-
-Menu_Item(Item_ID, Restaurant_ID, Item_Name, Description, Price, Availability)
-
-PK: Item_ID
-FK: Restaurant_ID → Restaurant.Restaurant_ID
-
-DELIVERY_PARTNER
-
-Delivery_Partner(Delivery_ID, Name, Phone, Vehicle_Number, Status)
-
-PK: Delivery_ID
-
-ORDERS
-
-Orders(Order_ID, Customer_ID, Restaurant_ID, Address_ID, Delivery_ID,
-       Order_Date, Order_Status, Total_Amount)
-
-PK: Order_ID
-FKs: Customer_ID, Restaurant_ID, Address_ID, Delivery_ID
-
-ORDER_ITEM
-
-Order_Item(Order_ID, Item_ID, Quantity, Unit_Price)
-
-PK: (Order_ID, Item_ID)
-FKs: Order_ID → Orders.Order_ID, Item_ID → Menu_Item.Item_ID
-
-PAYMENT
-
-Payment(Payment_ID, Order_ID, Payment_Method, Payment_Status,
-        Payment_Date, Amount)
-
-PK: Payment_ID
-FK: Order_ID → Orders.Order_ID
-
-📂 Repository Structure
-
+```text
 Database-Management-Systems/
-└── ONLINE FOOD DELIVERY SYSTEM/
-    ├── assignment 1.txt
-    ├── assignment 2.txt
-    ├── DBMS Assignment Online Food Delivery System.docx
-    ├── DBMS Assignment Online Food Delivery System.pdf
-    ├── Online_Food_Delivery_ER_Assignment.docx
-    ├── Online_Food_Delivery_ER_Assignment2.pdf
-    ├── ONLINE FOOD DELIVERY SYSTEM(1).png
-    ├── ONLINE FOOD DELIVERY SYSTEM.png
-    ├── Online Food.png
-    ├── online_food_delivery_ERD.png
-    └── online_food_delivery_schema.sql
+│
+└── 📁 ONLINE FOOD DELIVERY SYSTEM/
+    │
+    ├── 📄 assignment 1.txt
+    ├── 📄 assignment 2.txt
+    │
+    ├── 📄 DBMS Assignment Online Food Delivery System.docx
+    ├── 📄 DBMS Assignment Online Food Delivery System.pdf
+    │
+    ├── 📄 Online_Food_Delivery_ER_Assignment.docx
+    ├── 📄 Online_Food_Delivery_ER_Assignment2.pdf
+    │
+    ├── 🖼️ ONLINE FOOD DELIVERY SYSTEM(1).png
+    ├── 🖼️ ONLINE FOOD DELIVERY SYSTEM.png
+    ├── 🖼️ Online Food.png
+    ├── 🖼️ online_food_delivery_ERD.png
+    │
+    └── 💻 online_food_delivery_schema.sql
+```
 
-📝 Assignment 1
+---
 
-Objective: Select a real-world application and identify the database tables required to manage it.
+# 📝 Assignment 1
 
-The first assignment covers:
+### Objective
 
-Application name and purpose
+Select a real-world application and identify the database tables required to manage it.
 
-Required database tables
+### Covered Topics
 
-Columns / attributes
+* Application name and purpose
+* Required database tables
+* Columns / attributes
+* Relationships between tables
+* Purpose of each table
 
-Table relationships
+📄 **[View Assignment 1](ONLINE%20FOOD%20DELIVERY%20SYSTEM/assignment%201.txt)**
 
-Purpose of each table
+---
 
-📄 View Assignment 1
+# 📝 Assignment 2
 
-📝 Assignment 2 — ER Diagram & Relational Schema
+## ER Diagram Design & Relational Schema
 
-Objective: Design a complete ER diagram for the selected application and convert it into a relational schema.
+### Objective
 
-The second assignment covers:
+Design a complete **Entity Relationship Diagram** for the selected application and convert it into a **Relational Schema**.
 
-Entities and attributes
+### Covered Topics
 
-Primary Keys
+* Entities and attributes
+* Primary Keys
+* Foreign Keys
+* Relationships
+* Cardinalities
+* ER Diagram
+* Relational Schema
+* M:N relationship conversion
+* Relationship explanations
 
-Foreign Keys
+### 📄 Assignment Files
 
-Relationships
+* **[Assignment 2 Instructions](ONLINE%20FOOD%20DELIVERY%20SYSTEM/assignment%202.txt)**
+* **[Assignment 2 PDF](ONLINE%20FOOD%20DELIVERY%20SYSTEM/Online_Food_Delivery_ER_Assignment2.pdf)**
+* **[Assignment 2 DOCX](ONLINE%20FOOD%20DELIVERY%20SYSTEM/Online_Food_Delivery_ER_Assignment.docx)**
 
-Cardinalities
+---
 
-ER diagram
+# 💻 MySQL Implementation
 
-Relational schema
+The relational schema is implemented using **MySQL**.
 
-M relationship conversion
+### 📌 SQL File
 
-Relationship explanations
+**[online_food_delivery_schema.sql](ONLINE%20FOOD%20DELIVERY%20SYSTEM/online_food_delivery_schema.sql)**
 
-📄 View Assignment 2 Instructions
+### ⚙️ Includes
 
-📄 Assignment 2 PDF
+* ✅ Database creation
+* ✅ Table creation
+* ✅ Primary keys
+* ✅ Foreign keys
+* ✅ Unique constraints
+* ✅ Default values
+* ✅ Referential actions
+* ✅ Composite primary key for `Order_Item`
+* ✅ 1:1 relationship enforcement for `Payment`
 
-📄 Assignment 2 DOCX
+### ▶️ Run the Database
 
-💻 MySQL Schema
+Open the SQL file using **MySQL Workbench** or another MySQL client.
 
-The database structure is implemented in:
-
-📌 online_food_delivery_schema.sql
-
-The SQL script includes:
-
-Database creation
-
-Table creation
-
-Primary keys
-
-Foreign keys
-
-Unique constraints
-
-Default values
-
-Referential actions
-
-Composite primary key for Order_Item
-
-1:1 enforcement for Payment
-
-Run the SQL
-
-Open the script in MySQL Workbench or another MySQL client and execute it.
-
+```sql
 SOURCE online_food_delivery_schema.sql;
+```
 
-🛠️ Tools Used
+---
 
-MySQL / MySQL Workbench — relational database and SQL
+# 🛠️ Tools & Technologies
 
-ERDPlus / Draw.io — ER modelling and diagram design
+| Tool                      | Purpose                               |
+| :------------------------ | :------------------------------------ |
+| 🐬 **MySQL**              | Database implementation               |
+| 🧰 **MySQL Workbench**    | SQL development & database management |
+| 🗺️ **ERDPlus / Draw.io** | ER diagram modelling                  |
+| 📄 **Microsoft Word**     | Assignment documentation              |
+| 📕 **PDF**                | Assignment submission                 |
+| 🐙 **GitHub**             | Version control & project hosting     |
 
-Microsoft Word / PDF — assignment documentation
+---
 
-GitHub — version control and project submission
+# 🎯 Learning Outcomes
 
-🎯 Learning Outcomes
+Through this project, I practiced:
 
-This repository demonstrates practical understanding of:
+* 🧩 Identifying entities and attributes
+* 🔑 Designing primary and foreign keys
+* 🔗 Modelling database relationships
+* 🔢 Understanding cardinality
+* 🗺️ Creating ER diagrams
+* 📐 Converting ER models into relational schemas
+* 🔀 Resolving M:N relationships
+* 💻 Writing SQL DDL statements
+* 🗂️ Organizing database documentation
+* 🐙 Managing coursework using GitHub
 
-Entity identification
+---
 
-Attribute modelling
+# 👨‍💻 Author
 
-Primary and foreign key design
+<div align="center">
 
-ER modelling
+## **Vimal Rao**
 
-Cardinality
+BCA Student | Database & Software Development Learner
 
-Relational schema conversion
+[![GitHub](https://img.shields.io/badge/GitHub-vimalrao--27-181717?style=for-the-badge\&logo=github)](https://github.com/vimalrao-27)
 
-M relationship resolution
+</div>
 
-SQL DDL and database structure
+---
 
-Documentation and version control
+# 📚 Academic Project
 
-👨‍💻 Author
+This repository contains **college DBMS coursework and assignments** created for academic learning, database modelling practice, and documentation.
 
-Vimal Rao
+### 🚀 Keep Learning. Keep Building.
 
-GitHub: @vimalrao-27
+> **Learn • Improve • Keep Moving Forward 🚀**
 
-📚 Academic Project
+---
 
-This repository contains college DBMS coursework and assignments created for academic learning and demonstration purposes.
+<div align="center">
 
-Learn • Improve • Keep Moving Forward 🚀
+⭐ **Thanks for visiting this repository!**
+
+</div>
